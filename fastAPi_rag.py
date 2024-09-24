@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import speech_recognition as sr
 import io
 
-app = FastAPI(root_path = "/xlscout-invalidator-rerank",
+app = FastAPI(root_path = "/",
     version = "0.0.1",
     docs_url = '/docs',
     redoc_url = '/redoc',
@@ -198,8 +198,7 @@ async def voice_input(file: UploadFile = File(...)):
     logging.warning("here")
     contents = await file.read()
     audio_file = io.BytesIO(contents)
-
-    # Initialize recognizer
+    
     recognizer = sr.Recognizer()
 
     # Convert speech to text
